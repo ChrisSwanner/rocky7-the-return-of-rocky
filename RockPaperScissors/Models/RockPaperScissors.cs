@@ -39,5 +39,60 @@ namespace RockPaperScissors.Models
     {
       return _playerTwoName;
     }
+
+    public void SetPlayerTwoName(string name)
+    {
+      _playerTwoName = name;
+    }
+
+    public string GetPlayerOneChoice()
+    {
+      return _playerOneChoice;
+    }
+
+    public void SetPlayerOneChoice(string choice)
+    {
+      _playerOneChoice = choice;
+    }
+
+    public string GetPlayerTwoChoice()
+    {
+      return _playerTwoChoice;
+    }
+
+    public void SetPlayerTwoChoice(string choice)
+    {
+      _playerTwoChoice = choice;
+    }
+
+    public int GetPlayerOneWins()
+    {
+      return _playerOneWins;
+    }
+
+    public void SetPlayerOneWins()
+    {
+      _playerOneWins++;
+    }
+
+    public int GetPlayerTwoWins()
+    {
+      return _playerTwoWins;
+    }
+
+    public void SetPlayerTwoWins()
+    {
+      _playerTwoWins++;
+    }
+
+    public int GetDraws()
+    {
+      return _draws;
+    }
+
+    public void SetDraws()
+    {
+      _draws++;
+    }
   }
 }
