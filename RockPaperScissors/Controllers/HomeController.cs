@@ -13,11 +13,26 @@ namespace RockPaperScissors.Controllers
       return View();
     }
 
-    [HttpPost("/NewGame")]
-    public ActionResult NewGame()
+    [HttpPost("/PlayerOneSelection")]
+    public ActionResult PlayerOneSelection()
     {
-      RockPaperScissorsGame newGame = new RockPaperScissorsGame("Rock","Scissors");
+      string PlayerOneName = Request.Form["player-one"];
+      string PlayerTwoName = Request.Form["player-two"];
+      RockPaperScissorsGame newGame = new RockPaperScissorsGame(PlayerOneName, PlayerTwoName);
+
       return View(newGame);
     }
+
+    [HttpPost("/PlayerTwoSelection")]
+    public ActionResult PlayerTwoSelection()
+    {
+      string PlayerOneSelection = Request.Form["player-one-selection"];
+      List<RockPaperScissorsGame> allGames = RockPaperScissorsGame.GetAll();
+      RockPaperScissorsGame currentGame = allGames[0];
+      currentGame.SetPlayerOneChoice(PlayerOneSelection);
+
+      return View(currentGame);
+    }
+
   }
 }

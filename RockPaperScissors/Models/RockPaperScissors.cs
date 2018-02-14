@@ -14,17 +14,29 @@ namespace RockPaperScissors.Models
     private int _playerTwoWins;
     private int _draws;
     private string _gameWinner;
+    private static List<RockPaperScissorsGame> _instances = new List<RockPaperScissorsGame>{};
 
-    public RockPaperScissorsGame (string playerOneChoice, string playerTwoChoice)
+    public RockPaperScissorsGame (string playerOneName, string playerTwoName)
     {
-      _playerOneName = "Player 1";
-      _playerTwoName = "Player 2";
-      _playerOneChoice = playerOneChoice;
-      _playerTwoChoice = playerTwoChoice;
+      _playerOneName = playerOneName;
+      _playerTwoName = playerTwoName;
+      _playerOneChoice = "";
+      _playerTwoChoice = "";
       _playerOneWins = 0;
       _playerTwoWins = 0;
       _draws = 0;
       _gameWinner = " ";
+      _instances.Add(this);
+    }
+
+    public static List<RockPaperScissorsGame> GetAll()
+    {
+      return _instances;
+    }
+
+    public static void ClearAll()
+    {
+      _instances.Clear();
     }
 
     public string GetPlayerOneName()
