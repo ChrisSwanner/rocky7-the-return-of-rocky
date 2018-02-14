@@ -5,19 +5,19 @@ using RockPaperScissors.Models;
 
 namespace RockPaperScissors.Controllers
 {
-  public class RockPaperScissorsController : Controller
+  public class HomeController : Controller
   {
     [HttpGet("/")]
     public ActionResult Index()
     {
       return View();
     }
-    [HttpPost("/")]
-    public ActionResult Display()
+
+    [HttpPost("/NewGame")]
+    public ActionResult NewGame()
     {
-
-      return View();
+      RockPaperScissorsGame newGame = new RockPaperScissorsGame("Rock","Scissors");
+      return View(newGame);
     }
-
   }
 }
