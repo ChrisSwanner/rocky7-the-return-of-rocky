@@ -168,19 +168,22 @@ namespace RockPaperScissors.Models
       }
     }
 
-    public void GameAdjustScore()
+    public string GameResult()
     {
       if (GameWinCheck() == 0)
       {
         _draws++;
+        return "It's a Draw!";
       }
       else if (GameWinCheck() == 1)
       {
         _playerOneWins++;
+        return _playerOneName + " Wins!";
       }
       else
       {
         _playerTwoWins++;
+        return _playerTwoName + " Wins!";
       }
     }
   }

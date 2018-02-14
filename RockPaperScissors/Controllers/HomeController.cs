@@ -34,5 +34,16 @@ namespace RockPaperScissors.Controllers
       return View(currentGame);
     }
 
+    [HttpPost("/Results")]
+    public ActionResult Results()
+    {
+      string PlayerTwoSelection = Request.Form["player-two-selection"];
+      List<RockPaperScissorsGame> allGames = RockPaperScissorsGame.GetAll();
+      RockPaperScissorsGame currentGame = allGames[0];
+      currentGame.SetPlayerTwoChoice(PlayerTwoSelection);
+      string result = currentGame.GameResult();
+
+      return View("Results", result);
+    }
   }
 }
