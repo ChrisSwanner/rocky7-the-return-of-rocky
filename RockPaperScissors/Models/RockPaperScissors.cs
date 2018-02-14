@@ -94,5 +94,74 @@ namespace RockPaperScissors.Models
     {
       _draws++;
     }
+
+    public bool DrawCheck()
+    {
+      if (_playerOneChoice == _playerTwoChoice)
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+    }
+
+    public int RockWinCheck()
+    {
+      if (_playerTwoChoice == "Paper")
+      {
+        return 2;
+      }
+      else
+      {
+        return 1;
+      }
+    }
+
+    public int PaperWinCheck()
+    {
+      if (_playerTwoChoice == "Scissors")
+      {
+        return 2;
+      }
+      else
+      {
+        return 1;
+      }
+    }
+
+    public int ScissorsWinCheck()
+    {
+      if (_playerTwoChoice == "Rock")
+      {
+        return 2;
+      }
+      else
+      {
+        return 1;
+      }
+    }
+
+    // public int GameWinCheck()
+    // {
+    //   if (DrawCheck())
+    //   {
+    //     return 0;
+    //   }
+    //   else if (_playerOneChoice == "Rock")
+    //   {
+    //     return RockWinCheck();
+    //   }
+    //   else if (_playerOneChoice == "Paper")
+    //   {
+    //     return PaperWinCheck();
+    //   }
+    //   else if (_playerOneChoice == "Scissors")
+    //   {
+    //     return ScissorsWinCheck();
+    //   }
+    // }
+
   }
 }

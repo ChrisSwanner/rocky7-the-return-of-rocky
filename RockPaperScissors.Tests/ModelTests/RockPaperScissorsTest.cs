@@ -175,5 +175,38 @@ namespace RockPaperScissors.Tests
       //assert
       Assert.AreEqual(true, result);
     }
+
+    [TestMethod]
+    public void RockWinCheck_PlayerOnePicksRock_int()
+    {
+      //arrange
+      RockPaperScissorsGame newGame = new RockPaperScissorsGame("Rock", "Scissors");
+      //act
+      int result = newGame.RockWinCheck();
+      //assert
+      Assert.AreEqual(1, result);
+    }
+
+    [TestMethod]
+    public void PaperWinCheck_PlayerOnePicksPaper_int()
+    {
+      //arrange
+      RockPaperScissorsGame newGame = new RockPaperScissorsGame("Paper", "Scissors");
+      //act
+      int result = newGame.PaperWinCheck();
+      //assert
+      Assert.AreEqual(2, result);
+    }
+
+    [TestMethod]
+    public void ScissorsWinCheck_PlayerOnePicksScissors_int()
+    {
+      //arrange
+      RockPaperScissorsGame newGame = new RockPaperScissorsGame("Scissors", "Paper");
+      //act
+      int result = newGame.ScissorsWinCheck();
+      //assert
+      Assert.AreEqual(1, result);
+    }
   }
 }
