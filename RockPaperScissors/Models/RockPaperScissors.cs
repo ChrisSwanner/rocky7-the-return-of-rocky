@@ -34,7 +34,7 @@ namespace RockPaperScissors.Models
       return _instances;
     }
 
-    public static void ClearAll()
+    public static void Reset()
     {
       _instances.Clear();
     }
@@ -168,22 +168,22 @@ namespace RockPaperScissors.Models
       }
     }
 
-    public string GameResult()
+    public void GameResult()
     {
       if (GameWinCheck() == 0)
       {
         _draws++;
-        return "It's a Draw!";
+        _gameWinner = "It's a Draw!";
       }
       else if (GameWinCheck() == 1)
       {
         _playerOneWins++;
-        return _playerOneName + " Wins!";
+        _gameWinner = _playerOneName + " Wins!";
       }
       else
       {
         _playerTwoWins++;
-        return _playerTwoName + " Wins!";
+        _gameWinner = _playerTwoName + " Wins!";
       }
     }
   }

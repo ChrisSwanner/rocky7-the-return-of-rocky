@@ -2,4 +2,13 @@
   Layout = "_Layout";
 }
 
-<h1>@Model</h1>
+<h1>@Model.GetGameWinner()</h1>
+<h2>@Model.GetPlayerOneName() Picked: @Model.GetPlayerOneChoice()</h2>
+<h2>@Model.GetPlayerTwoName() Picked: @Model.GetPlayerTwoChoice()</h2>
+<h2>@Model.GetPlayerOneName() Has Won: @Model.GetPlayerOneWins() Games</h2>
+<h2>@Model.GetPlayerTwoName() Has Won: @Model.GetPlayerTwoWins() Games</h2>
+<h2>Number of Draws: @Model.GetDraws()</h2>
+
+<form action="/PlayAgain" method="post">
+  <button class="btn btn-primary" type="submit" name="button">Play Again</button>
+</form>

@@ -13,6 +13,14 @@ namespace RockPaperScissors.Controllers
       return View();
     }
 
+    [HttpPost("/PlayAgain")]
+    public ActionResult PlayAgain()
+    {
+      List<RockPaperScissorsGame> allGames = RockPaperScissorsGame.GetAll();
+      RockPaperScissorsGame currentGame = allGames[0];
+      return View("PlayerOneSelection", currentGame);
+    }
+
     [HttpPost("/PlayerOneSelection")]
     public ActionResult PlayerOneSelection()
     {
@@ -41,9 +49,9 @@ namespace RockPaperScissors.Controllers
       List<RockPaperScissorsGame> allGames = RockPaperScissorsGame.GetAll();
       RockPaperScissorsGame currentGame = allGames[0];
       currentGame.SetPlayerTwoChoice(PlayerTwoSelection);
-      string result = currentGame.GameResult();
+      currentGame.GameResult();
 
-      return View("Results", result);
+      return View(currentGame);
     }
   }
 }
