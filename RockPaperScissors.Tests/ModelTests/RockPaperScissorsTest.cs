@@ -20,6 +20,18 @@ namespace RockPaperScissors.Tests
     }
 
     [TestMethod]
+    public void SetName_SetPlayerOneName_void()
+    {
+      //arrange
+      string name = "Joel";
+      RockPaperScissorsGame newGame = new RockPaperScissorsGame("Rock","Scissors");
+      //act
+      newGame.SetPlayerOneName(name);
+      //assert
+      Assert.AreEqual("Joel", newGame.GetPlayerOneName());
+    }
+
+    [TestMethod]
     public void GetName_FetchPlayerTwoName_String()
     {
       //arrange

@@ -30,6 +30,11 @@ namespace RockPaperScissors.Models
       return _playerOneName;
     }
 
+    public void SetPlayerOneName(string name)
+    {
+      _playerOneName = "";
+    }
+
     public string GetPlayerTwoName()
     {
       return _playerTwoName;
