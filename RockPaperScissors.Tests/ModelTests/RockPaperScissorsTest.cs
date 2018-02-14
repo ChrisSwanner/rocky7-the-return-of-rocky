@@ -165,5 +165,15 @@ namespace RockPaperScissors.Tests
       Assert.AreEqual(1, newGame.GetDraws());
     }
 
+    [TestMethod]
+    public void DrawCheck_CheckDraw_bool()
+    {
+      //arrange
+      RockPaperScissorsGame newGame = new RockPaperScissorsGame("Scissors", "Scissors");
+      //act
+      bool result = newGame.DrawCheck();
+      //assert
+      Assert.AreEqual(true, result);
+    }
   }
 }
