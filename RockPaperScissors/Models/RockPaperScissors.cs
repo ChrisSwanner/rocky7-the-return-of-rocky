@@ -13,6 +13,7 @@ namespace RockPaperScissors.Models
     private int _playerOneWins;
     private int _playerTwoWins;
     private int _draws;
+    private string _gameWinner;
 
     public RockPaperScissorsGame (string playerOneChoice, string playerTwoChoice)
     {
@@ -23,6 +24,7 @@ namespace RockPaperScissors.Models
       _playerOneWins = 0;
       _playerTwoWins = 0;
       _draws = 0;
+      _gameWinner = " ";
     }
 
     public string GetPlayerOneName()
@@ -70,19 +72,9 @@ namespace RockPaperScissors.Models
       return _playerOneWins;
     }
 
-    public void SetPlayerOneWins()
-    {
-      _playerOneWins++;
-    }
-
     public int GetPlayerTwoWins()
     {
       return _playerTwoWins;
-    }
-
-    public void SetPlayerTwoWins()
-    {
-      _playerTwoWins++;
     }
 
     public int GetDraws()
@@ -90,26 +82,23 @@ namespace RockPaperScissors.Models
       return _draws;
     }
 
-    public void SetDraws()
+    public string GetGameWinner()
     {
-      _draws++;
+      return _gameWinner;
     }
 
-    public bool DrawCheck()
+    public void SetGameWinner(string gameWinner)
     {
-      if (_playerOneChoice == _playerTwoChoice)
-      {
-        return true;
-      }
-      else
-      {
-        return false;
-      }
+      _gameWinner = gameWinner;
     }
 
     public int RockWinCheck()
     {
-      if (_playerTwoChoice == "Paper")
+      if (_playerOneChoice == _playerTwoChoice)
+      {
+        return 0;
+      }
+      else if (_playerTwoChoice == "Paper")
       {
         return 2;
       }
@@ -121,7 +110,11 @@ namespace RockPaperScissors.Models
 
     public int PaperWinCheck()
     {
-      if (_playerTwoChoice == "Scissors")
+      if (_playerOneChoice == _playerTwoChoice)
+      {
+        return 0;
+      }
+      else if (_playerTwoChoice == "Scissors")
       {
         return 2;
       }
@@ -133,7 +126,11 @@ namespace RockPaperScissors.Models
 
     public int ScissorsWinCheck()
     {
-      if (_playerTwoChoice == "Rock")
+      if (_playerOneChoice == _playerTwoChoice)
+      {
+        return 0;
+      }
+      else if (_playerTwoChoice == "Rock")
       {
         return 2;
       }
@@ -143,25 +140,36 @@ namespace RockPaperScissors.Models
       }
     }
 
-    // public int GameWinCheck()
-    // {
-    //   if (DrawCheck())
-    //   {
-    //     return 0;
-    //   }
-    //   else if (_playerOneChoice == "Rock")
-    //   {
-    //     return RockWinCheck();
-    //   }
-    //   else if (_playerOneChoice == "Paper")
-    //   {
-    //     return PaperWinCheck();
-    //   }
-    //   else if (_playerOneChoice == "Scissors")
-    //   {
-    //     return ScissorsWinCheck();
-    //   }
-    // }
+    public int GameWinCheck()
+    {
+      if (_playerOneChoice == "Rock")
+      {
+        return RockWinCheck();
+      }
+      else if (_playerOneChoice == "Paper")
+      {
+        return PaperWinCheck();
+      }
+      else
+      {
+        return ScissorsWinCheck();
+      }
+    }
 
+    public void GameAdjustScore()
+    {
+      if (GameWinCheck() == 0)
+      {
+        _draws++;
+      }
+      else if (GameWinCheck() == 1)
+      {
+        _playerOneWins++;
+      }
+      else
+      {
+        _playerTwoWins++;
+      }
+    }
   }
 }

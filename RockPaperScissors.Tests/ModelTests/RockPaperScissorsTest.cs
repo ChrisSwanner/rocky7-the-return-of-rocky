@@ -9,26 +9,31 @@ namespace RockPaperScissors.Tests
   public class RockPaperScissorsTest
   {
     [TestMethod]
-    public void GetName_FetchPlayerOneName_String()
+    public void Getters_PlayerOneNameAndGameWinner_String()
     {
       //arrange
       RockPaperScissorsGame newGame = new RockPaperScissorsGame("Rock","Scissors");
       //act
       string result = newGame.GetPlayerOneName();
+      string gameWinnerResult = newGame.GetGameWinner();
       //assert
       Assert.AreEqual("Player 1", result);
+      Assert.AreEqual(" ", gameWinnerResult);
     }
 
     [TestMethod]
-    public void SetName_SetPlayerOneName_void()
+    public void Setters_PlayerOneNameAndGameWinner_void()
     {
       //arrange
       string name = "Joel";
+      string name2 = "Sara";
       RockPaperScissorsGame newGame = new RockPaperScissorsGame("Rock","Scissors");
       //act
       newGame.SetPlayerOneName(name);
+      newGame.SetGameWinner(name2);
       //assert
       Assert.AreEqual("Joel", newGame.GetPlayerOneName());
+      Assert.AreEqual("Sara", newGame.GetGameWinner());
     }
 
     [TestMethod]
@@ -112,17 +117,6 @@ namespace RockPaperScissors.Tests
     }
 
     [TestMethod]
-    public void SetWin_PlayerOneWins_void()
-    {
-      //arrange
-      RockPaperScissorsGame newGame = new RockPaperScissorsGame("Rock", "Scissors");
-      //act
-      newGame.SetPlayerOneWins();
-      //assert
-      Assert.AreEqual(1, newGame.GetPlayerOneWins());
-    }
-
-    [TestMethod]
     public void GetWins_GetPlayerTwoWins_int()
     {
       //arrange
@@ -134,16 +128,6 @@ namespace RockPaperScissors.Tests
     }
 
     [TestMethod]
-    public void SetWin_PlayerTwoWins_void()
-    {
-      //arrange
-      RockPaperScissorsGame newGame = new RockPaperScissorsGame("Rock", "Scissors");
-      //act
-      newGame.SetPlayerTwoWins();
-      //assert
-      Assert.AreEqual(1, newGame.GetPlayerTwoWins());
-    }
-    [TestMethod]
     public void GetDraws_FetchDraws_int()
     {
       //arrange
@@ -152,28 +136,6 @@ namespace RockPaperScissors.Tests
       int result = newGame.GetDraws();
       //assert
       Assert.AreEqual(0, result);
-    }
-
-    [TestMethod]
-    public void SetDraws_AddToDraws_void()
-    {
-      //arrange
-      RockPaperScissorsGame newGame = new RockPaperScissorsGame("Rock", "Scissors");
-      //act
-      newGame.SetDraws();
-      //assert
-      Assert.AreEqual(1, newGame.GetDraws());
-    }
-
-    [TestMethod]
-    public void DrawCheck_CheckDraw_bool()
-    {
-      //arrange
-      RockPaperScissorsGame newGame = new RockPaperScissorsGame("Scissors", "Scissors");
-      //act
-      bool result = newGame.DrawCheck();
-      //assert
-      Assert.AreEqual(true, result);
     }
 
     [TestMethod]
@@ -207,6 +169,28 @@ namespace RockPaperScissors.Tests
       int result = newGame.ScissorsWinCheck();
       //assert
       Assert.AreEqual(1, result);
+    }
+
+    [TestMethod]
+    public void GameWinCheck_DetermineWinnerOrDraw_int()
+    {
+      //arrange
+      RockPaperScissorsGame newGame = new RockPaperScissorsGame("Scissors", "Paper");
+      //act
+      int result = newGame.GameWinCheck();
+      //assert
+      Assert.AreEqual(1, result);
+    }
+
+    [TestMethod]
+    public void GameAdjustScore_SetScores_int()
+    {
+      //arrange
+      RockPaperScissorsGame newGame = new RockPaperScissorsGame("Scissors", "Paper");
+      //act
+      newGame.GameAdjustScore();
+      //assert
+      Assert.AreEqual(1, newGame.GetPlayerOneWins());
     }
   }
 }
