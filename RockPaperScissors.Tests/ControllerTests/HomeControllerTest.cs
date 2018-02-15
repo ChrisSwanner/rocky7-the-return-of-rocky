@@ -22,16 +22,31 @@ namespace RockPaperScissors.Tests
       //assert
       Assert.IsInstanceOfType(result, typeof(ViewResult));
     }
+
     [TestMethod]
-    public void NewGame_HasCorrectModelType_Obj()
+    public void PlayAgain_HasCorrectModelType_RPSGame()
     {
       //arrange
-      ViewResult newGameView = new HomeController().NewGame() as ViewResult;
+      RockPaperScissorsGame dummyGame = new RockPaperScissorsGame("PlayerOneName", "PlayerTwoName");
+      ViewResult playAgainView = new HomeController().PlayAgain() as ViewResult;
       //act
-      var result = newGameView.ViewData.Model;
+      var result = playAgainView.ViewData.Model;
+      System.Console.WriteLine("play again result: "+result);
 
       //assert
       Assert.IsInstanceOfType(result, typeof(RockPaperScissorsGame));
     }
+
+    // [TestMethod]
+    // public void PlayerOneSelection_HasCorrectModelType_RPSGame()
+    // {
+    // //arrange
+    // ViewResult PlayerOneSelectionView = new HomeController().PlayerOneSelection() as ViewResult;
+    // //act
+    // var result = PlayerOneSelectionView.ViewData.Model;
+    // System.Console.WriteLine("result: "+result);
+    // //assert
+    // Assert.IsInstanceOfType(result, typeof(RockPaperScissorsGame));
+    // }
   }
 }

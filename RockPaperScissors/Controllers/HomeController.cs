@@ -13,7 +13,14 @@ namespace RockPaperScissors.Controllers
       return View();
     }
 
-    [HttpPost("/PlayAgain")]
+    [HttpGet("/Reset")]
+    public ActionResult Reset()
+    {
+      RockPaperScissorsGame.Reset();
+      return View("Index");
+    }
+
+    [HttpGet("/PlayAgain")]
     public ActionResult PlayAgain()
     {
       List<RockPaperScissorsGame> allGames = RockPaperScissorsGame.GetAll();

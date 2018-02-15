@@ -9,6 +9,10 @@
 <h2>@Model.GetPlayerTwoName() Has Won: @Model.GetPlayerTwoWins() Games</h2>
 <h2>Number of Draws: @Model.GetDraws()</h2>
 
-<form action="/PlayAgain" method="post">
+<form action="/PlayAgain" method="get">
   <button class="btn btn-primary" type="submit" name="button">Play Again</button>
+</form>
+
+<form action="/Reset" method="get">
+  <button class="btn btn-danger" type="submit" name="button">Reset Game</button>
 </form>
