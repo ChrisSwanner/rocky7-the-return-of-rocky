@@ -31,7 +31,7 @@ _This is an Epicodus practice project for week 2 of the C# course. Its purpose i
   * sample output : Player 1: Joel, Player 2: Sara
 * Each player selects either rock, paper, or scissors.
   * sample input : dropdown list: "rock, paper:selected, scissors"
-  * sample output : "paper"
+  * sample output : no output yet
 * Input choices for each player are compared and evaluated.
   * sample input : Player 1: "paper", Player 2: "paper"
   * sample output : no output yet
@@ -69,9 +69,11 @@ git clone https://github.com/Sara-Hamilton/RockPaperScissors.git
 
 * _View program on web browser at port localhost:5000/_
 
-* _Enter a number into the form._
+* _Follow the prompts._
 
-* _Submit the form to see the output._
+* _Select Play Again button to keep playing with same players._
+
+* _Select Reset Game button to reset all values._
 
 ## Support and contact details
 
