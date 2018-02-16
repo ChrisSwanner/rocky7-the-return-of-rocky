@@ -60,5 +60,35 @@ namespace RockPaperScissors.Controllers
 
       return View(currentGame);
     }
+
+    [HttpPost("/Computer")]
+    public ActionResult Computer()
+    {
+      string PlayerOneName = Request.Form["player-one-computer"];
+      string PlayerTwoName = "Computer";
+      RockPaperScissorsGame newGame = new RockPaperScissorsGame(PlayerOneName, PlayerTwoName);
+      newGame.Computery();
+      return View(newGame);
+    }
+
+    [HttpPost("/ComputerResults")]
+    public ActionResult ComputerResults()
+    {
+      string PlayerOneSelection = Request.Form["player-one-selection-computer"];
+      List<RockPaperScissorsGame> allGames = RockPaperScissorsGame.GetAll();
+      RockPaperScissorsGame currentGame = allGames[0];
+      currentGame.SetPlayerOneChoice(PlayerOneSelection);
+      currentGame.GameResult();
+      return View(currentGame);
+    }
+
+    [HttpGet("/PlayAgainComputer")]
+    public ActionResult PlayAgainComputer()
+    {
+      List<RockPaperScissorsGame> allGames = RockPaperScissorsGame.GetAll();
+      RockPaperScissorsGame currentGame = allGames[0];
+      currentGame.Computery();
+      return View("Computer", currentGame);
+    }
   }
 }

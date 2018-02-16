@@ -186,5 +186,24 @@ namespace RockPaperScissors.Models
         _gameWinner = _playerTwoName + " Wins!";
       }
     }
+
+    public void Computery()
+    {
+      Random rnd = new Random();
+      int choice = rnd.Next(1, 4);
+
+      if (choice == 1)
+      {
+        _playerTwoChoice = "Rock";
+      }
+      else if (choice == 2)
+      {
+        _playerTwoChoice = "Paper";
+      }
+      else if (choice == 3)
+      {
+        _playerTwoChoice = "Scissors";
+      }
+    }
   }
 }

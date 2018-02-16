@@ -1,11 +1,10 @@
 @{
   Layout = "_Layout";
 }
-
-<form  action="/PlayerTwoSelection" method="post">
+<form  action="/ComputerResults" method="post">
   <div class="form-group">
     <label for="player-one-selection">@Model.GetPlayerOneName()'s Selection:</label>
-    <select name="player-one-selection">
+    <select name="player-one-selection-computer">
       <option value="Rock">Rock</option>
       <option value="Paper">Paper</option>
       <option value="Scissors">Scissors</option>
